@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://wedding-invites-30f8b2e19214.herokuapp.com/invite/mr -->
+<html lang="hi" id="html-root"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="https://wedding-invites-30f8b2e19214.herokuapp.com/static/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://wedding-invites-30f8b2e19214.herokuapp.com/static/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://wedding-invites-30f8b2e19214.herokuapp.com/static/favicon/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://wedding-invites-30f8b2e19214.herokuapp.com/static/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://wedding-invites-30f8b2e19214.herokuapp.com/static/favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://wedding-invites-30f8b2e19214.herokuapp.com/static/favicon/android-chrome-512x512.png">
+  <link rel="manifest" href="https://wedding-invites-30f8b2e19214.herokuapp.com/static/favicon/site.webmanifest">
+  <title>You're Invited — Sakshi &amp; Atish's Wedding — Sakshi &amp; Atish Wedding</title>
+  <meta name="description" content="Join us in celebrating the wedding of Sakshi and Atish. A joyful union of two hearts and two families.">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./You&#39;re Invited — Sakshi &amp; Atish&#39;s Wedding — Sakshi &amp; Atish Wedding_files/css2" rel="stylesheet">
+  <link rel="stylesheet" href="./You&#39;re Invited — Sakshi &amp; Atish&#39;s Wedding — Sakshi &amp; Atish Wedding_files/style.css">
+  <style>
+    /* Language toggle button */
+    #lang-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 9999;
+      background: linear-gradient(135deg, #c8a84b, #f0d080);
+      color: #1a0a00;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.45rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: 'Lato', sans-serif;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    #lang-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    /* Devanagari font override when Marathi active */
+    html[lang="hi"] .i18n-en { display: none !important; }
+    html[lang="en"] .i18n-hi { display: none !important; }
+  </style>
+  
+<script>
+  // Force language set by the server route, overriding localStorage
+  (function() {
+    var lang = "hi";
+    localStorage.setItem('lang', lang);
+  })();
+</script>
+
+</head>
+<body>
+  <!-- Language Toggle Button -->
+  <button id="lang-toggle" onclick="toggleLanguage()" aria-label="Toggle language">English</button>
+
+  
+<!-- Background music (muted by default) -->
+<audio id="bg-music" loop="">
+    <source src="./You&#39;re Invited — Sakshi &amp; Atish&#39;s Wedding — Sakshi &amp; Atish Wedding_files/wedding_theme.mp4" type="audio/mpeg">
+</audio>
+
+<!-- Floating music toggle -->
+<button class="music-btn" id="music-toggle" title="Toggle background music" aria-label="Toggle music">
+    🎵
+</button>
+
+<!-- ══ ENVELOPE OVERLAY ════════════════════════════════════════════════════ -->
+<div class="env-overlay" id="env-overlay">
+
+    <!-- Floating petals in BG -->
+    <div class="env-bg-petal" style="left:8%;animation-delay:0s">🌸</div>
+    <div class="env-bg-petal" style="left:25%;animation-delay:0.8s">✿</div>
+    <div class="env-bg-petal" style="left:55%;animation-delay:1.6s">🌺</div>
+    <div class="env-bg-petal" style="left:78%;animation-delay:0.4s">🌸</div>
+    <div class="env-bg-petal" style="left:92%;animation-delay:1.2s">✿</div>
+
+    <p class="env-tap-hint" id="env-hint">
+        <span class="i18n-en">Tap to open your invitation 💌</span>
+        <span class="i18n-hi">आमंत्रण पाहण्यासाठी येथे क्लिक करा 💌</span>
+    </p>
+
+    <div class="env-scene" id="env-scene">
+        <!-- Envelope body -->
+        <div class="env-body">
+            <div class="env-flap-bottom"></div>
+            <div class="env-flap-left"></div>
+            <div class="env-flap-right"></div>
+            <div class="env-flap-top" id="env-flap-top">
+                <div class="env-seal" id="env-seal">💛</div>
+            </div>
+            <div class="env-card-stub" id="env-card-stub">
+                <div class="env-card-inner">
+                    <div class="env-card-title">
+                        <span class="i18n-en">Sakshi &amp; Atish</span>
+                        <span class="i18n-hi">साक्षी &amp; अतिश</span>
+                    </div>
+                    <div class="env-card-sub">
+                        <span class="i18n-en">Wedding Invitation</span>
+                        <span class="i18n-hi">विवाह-निमंत्रण</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="env-shadow"></div>
+    </div>
+</div>
+
+<!-- Reuse all envelope styles from invite.html via base styles -->
+<style>
+    .env-overlay {
+        position: fixed; inset: 0;
+        background: radial-gradient(ellipse at 50% 60%, #fdf5e6 0%, #f5dfc0 55%, #e0c090 100%);
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        z-index: 5000; transition: opacity 0.6s ease, visibility 0.6s ease; overflow: hidden;
+    }
+    .env-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .env-bg-petal { position: absolute; top: -80px; font-size: 1.6rem; opacity: 0.2; animation: petalFall linear infinite; }
+    @keyframes petalFall { 0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.22; } 80% { opacity: 0.15; } 100% { transform: translateY(115vh) rotate(540deg) scale(0.7); opacity: 0; } }
+    .env-tap-hint { font-family: var(--font-sub); font-style: italic; font-size: 1.15rem; color: #7a5a35; margin-bottom: 2.5rem; text-align: center; animation: hintFloat 2.4s ease-in-out infinite; transition: opacity 0.4s ease; }
+    @keyframes hintFloat { 0%, 100% { opacity: 0.65; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-7px); } }
+    .env-scene { cursor: pointer; perspective: 1000px; position: relative; width: min(340px, 82vw); animation: envBob 3.5s ease-in-out infinite; }
+    @keyframes envBob { 0%, 100% { transform: translateY(0) rotate(-0.5deg); } 30% { transform: translateY(-10px) rotate(0.5deg); } 65% { transform: translateY(-5px) rotate(-0.3deg); } }
+    .env-scene.opening { animation: none; }
+    .env-shadow { width: 85%; height: 20px; background: radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, transparent 75%); border-radius: 50%; margin: 10px auto 0; transition: transform 0.7s ease, opacity 0.7s ease; }
+    .env-scene.opening .env-shadow { transform: scaleX(0.5); opacity: 0.2; }
+    .env-body { position: relative; width: 100%; padding-bottom: 65%; background: linear-gradient(160deg, #fffbf0 0%, #f8e8c0 50%, #f0d8a0 100%); border-radius: 6px; box-shadow: 0 4px 0 #d4a830, 0 14px 50px rgba(120,70,10,0.3), inset 0 1px 0 rgba(255,255,255,0.7); border: 1px solid rgba(201,168,76,0.5); overflow: visible; }
+    .env-body::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #d4aa40, #f0d070, #d4aa40, transparent); border-radius: 6px 6px 0 0; z-index: 20; }
+    .env-flap-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 58%; background: linear-gradient(175deg, #f0d898 0%, #d8b870 100%); clip-path: polygon(0% 100%, 50% 5%, 100% 100%); border-radius: 0 0 6px 6px; z-index: 5; }
+    .env-flap-left { position: absolute; top: 0; left: 0; bottom: 0; width: 53%; background: linear-gradient(95deg, #f5e8c0 0%, #e8d090 100%); clip-path: polygon(0% 0%, 100% 48%, 0% 96%); z-index: 5; }
+    .env-flap-right { position: absolute; top: 0; right: 0; bottom: 0; width: 53%; background: linear-gradient(85deg, #e8d090 0%, #f5e8c0 100%); clip-path: polygon(100% 0%, 0% 48%, 100% 96%); z-index: 5; }
+    .env-flap-top { position: absolute; top: 0; left: 0; right: 0; height: 54%; background: linear-gradient(195deg, #fffbf0 0%, #f0d888 60%, #e0c060 100%); clip-path: polygon(0% 0%, 100% 0%, 50% 100%); transform-origin: top center; transform: rotateX(0deg); transition: transform 0.75s cubic-bezier(0.45,0.05,0.55,0.95); z-index: 8; }
+    .env-flap-top.open { transform: rotateX(-180deg); z-index: 1; }
+    .env-seal { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); width: 44px; height: 44px; background: radial-gradient(circle at 40% 35%, #f0c040, #c8860a 60%, #8a5800 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 3px 10px rgba(100,60,0,0.5), inset 0 1px 2px rgba(255,220,100,0.6); z-index: 11; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease; }
+    .env-seal.broken { transform: translateX(-50%) scale(0) rotate(180deg); opacity: 0; }
+    .env-card-stub { position: absolute; left: 8%; right: 8%; bottom: 6%; height: 72%; background: linear-gradient(160deg, #ffffff 0%, #fffbf5 100%); border-radius: 8px 8px 4px 4px; border: 1px solid rgba(201,168,76,0.45); box-shadow: 0 3px 14px rgba(100,60,10,0.15), inset 0 1px 0 rgba(255,255,255,0.9); transform: translateY(2px); transition: transform 1s cubic-bezier(0.22,1,0.36,1); z-index: 3; display: flex; align-items: center; justify-content: center; }
+    .env-card-stub.slide-up { transform: translateY(-240%) rotate(-2deg) scale(1.06); }
+    .env-card-inner { text-align: center; padding: 0.8rem 1rem; }
+    .env-card-title { font-family: var(--font-head); font-size: clamp(0.85rem,3.5vw,1.05rem); font-weight: 700; margin-bottom: 0.3rem; background: linear-gradient(135deg, #8a6520, #c97c82); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .env-card-sub { font-family: var(--font-sub); font-style: italic; font-size: clamp(0.65rem,2.5vw,0.82rem); color: #7a5c40; letter-spacing: 0.04em; }
+    .env-ripple { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255,220,80,0.6) 0%, rgba(201,168,76,0) 70%); transform: scale(0); animation: rippleOut 0.7s ease-out forwards; pointer-events: none; z-index: 100; }
+    @keyframes rippleOut { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(4); opacity: 0; } }
+    .env-confetti { position: fixed; font-size: 1.4rem; pointer-events: none; z-index: 6000; animation: confettiBurst 1.4s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
+    @keyframes confettiBurst { 0% { transform: translate(0,0) rotate(0deg) scale(1); opacity: 1; } 100% { transform: var(--tx) rotate(var(--rot)) scale(0.3); opacity: 0; } }
+    #page-wrapper-inner { opacity: 0; transform: translateY(40px) scale(0.95); transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
+</style>
+
+<script>
+    const envOverlay = document.getElementById('env-overlay');
+    const envFlap = document.getElementById('env-flap-top');
+    const envCard = document.getElementById('env-card-stub');
+    const envScene = document.getElementById('env-scene');
+    const envHint = document.getElementById('env-hint');
+    const envSeal = document.getElementById('env-seal');
+    let invitationOpen = false;
+
+    function spawnRipple(e) {
+        const rect = envScene.getBoundingClientRect();
+        const cx = (e.clientX || rect.left + rect.width / 2) - rect.left;
+        const cy = (e.clientY || rect.top + rect.height / 2) - rect.top;
+        const size = Math.max(rect.width, rect.height) * 1.6;
+        const ripple = document.createElement('div');
+        ripple.className = 'env-ripple';
+        ripple.style.cssText = `width:${size}px;height:${size}px;left:${cx - size/2}px;top:${cy - size/2}px;`;
+        envScene.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 750);
+    }
+
+    function burstConfetti() {
+        const cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+        const glyphs = ['🌸','✿','🌺','🌼','💮','🌷','✦','❀'];
+        for (let i = 0; i < 22; i++) {
+            const el = document.createElement('div');
+            el.className = 'env-confetti';
+            el.textContent = glyphs[i % glyphs.length];
+            const angle = (i / 22) * 360 + Math.random() * 20;
+            const dist = 140 + Math.random() * 200;
+            const tx = `translateX(${Math.cos(angle * Math.PI / 180) * dist}px) translateY(${Math.sin(angle * Math.PI / 180) * dist - 120}px)`;
+            el.style.cssText = `left:${cx-12}px;top:${cy-12}px;--tx:${tx};--rot:${(Math.random()-0.5)*540}deg;animation-delay:${Math.random()*0.18}s;animation-duration:${1.2+Math.random()*0.5}s;`;
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 2000);
+        }
+    }
+
+    function openInvitation(e) {
+        if (invitationOpen) return;
+        invitationOpen = true;
+        if (e) spawnRipple(e);
+        envScene.classList.add('opening');
+        envHint.style.opacity = '0';
+        setTimeout(() => { if (envSeal) envSeal.classList.add('broken'); }, 80);
+        setTimeout(() => envFlap.classList.add('open'), 180);
+        setTimeout(() => envCard.classList.add('slide-up'), 700);
+        setTimeout(() => {
+            burstConfetti();
+            envOverlay.classList.add('hidden');
+            const pw = document.getElementById('page-wrapper-inner');
+            pw.style.opacity = '1';
+            pw.style.transform = 'translateY(0) scale(1)';
+            const bgMusic = document.getElementById('bg-music');
+            const musicBtn = document.getElementById('music-toggle');
+            if (bgMusic && !playing) {
+                bgMusic.play().then(() => {
+                    playing = true;
+                    if (musicBtn) { musicBtn.textContent = '🔇'; musicBtn.classList.add('playing'); }
+                }).catch(() => {});
+            }
+        }, 1450);
+    }
+
+    document.getElementById('env-scene').addEventListener('click', function(e) { openInvitation(e); });
+</script>
+
+<div class="page-wrapper">
+    <div id="page-wrapper-inner">
+
+        <!-- ══ HEADER ══════════════════════════════════════════════════════════ -->
+        <section class="invite-header card animate-fadein">
+            <span class="petal petal-1">🌸</span>
+            <span class="petal petal-2">🌺</span>
+            <span class="petal petal-3">✿</span>
+
+            <p class="invite-pretext">
+                <span class="i18n-en">With joy &amp; love, we invite you to the wedding of</span>
+                <span class="i18n-hi">आनंद व प्रेमपूर्वक, आम्ही आपणांस विवाह सोहळ्यास निमंत्रित करतो</span>
+            </p>
+
+            <div class="invite-names">
+                <span class="i18n-en">Sakshi</span>
+                <span class="i18n-hi">साक्षी</span>
+                <span class="invite-ampersand">&amp;</span>
+                <span class="i18n-en">Atish</span>
+                <span class="i18n-hi">अतिश</span>
+            </div>
+
+            <p class="invite-tagline">
+                <span class="i18n-en">Two hearts, one beautiful journey begins</span>
+                <span class="i18n-hi">दोन अंत:करणे एकत्र येऊन, नव्या स्वप्नांच्या प्रवासाला प्रारंभ</span>
+            </p>
+        </section>
+
+        <!-- ══ FLORAL DIVIDER ════════════════════════════════════════════════ -->
+        <img src="./You&#39;re Invited — Sakshi &amp; Atish&#39;s Wedding — Sakshi &amp; Atish Wedding_files/floral_border.png" alt="Floral decoration" style="width:100%;max-height:90px;object-fit:cover;margin:-0.5rem 0;border-radius:0;" loading="lazy">
+
+        <!-- ══ COUPLE ILLUSTRATION ══════════════════════════════════════════════ -->
+        <section class="card animate-fadein couple-section">
+            <img src="./You&#39;re Invited — Sakshi &amp; Atish&#39;s Wedding — Sakshi &amp; Atish Wedding_files/bride_groom1.png" alt="Bride Sakshi and Groom Atish" class="couple-image">
+            <div class="couple-caption">
+                <span class="i18n-en">
+                    <strong>Sakshi</strong>
+                    &amp;
+                    <strong>Atish</strong>
+                </span>
+                <span class="i18n-hi">
+                    <strong>साक्षी</strong>
+                    &amp;
+                    <strong>अतिश</strong>
+                </span>
+            </div>
+        </section>
+
+        <!-- ══ FAMILY DETAILS ══════════════════════════════════════════════════ -->
+        <section class="card animate-fadeup delay-2" style="opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s;">
+            <h2 class="section-title">
+                <span class="i18n-en">Family</span>
+                <span class="i18n-hi">परिवार-परिचय</span>
+            </h2>
+            <div class="gold-divider"><span>❧</span></div>
+
+            <div class="family-grid">
+                <!-- Bride Side -->
+                <div class="family-block">
+                    <div class="family-role-label">
+                        <span class="i18n-en">🌸 Bride</span>
+                        <span class="i18n-hi">🌸 वधू</span>
+                    </div>
+                    <div class="family-name">
+                        <span class="i18n-en">Sakshi</span>
+                        <span class="i18n-hi">साक्षी</span>
+                    </div>
+                    <div class="family-parent">
+                        <span class="i18n-en">D/o Smt. Minatai &amp; Shri Sudhakarrao Nehare</span>
+                        <span class="i18n-hi">सुपुत्री श्रीमती मीनाताई व श्री सुधाकरराव नेहारे</span>
+                    </div>
+                    <div class="family-address">
+                        <span class="i18n-en">Dahegaon (Gondi),Tq. Arvi, Dist. Wardha</span>
+                        <span class="i18n-hi">मु. पो. दहेगाव (गोंडी), ता. आर्वी, जि. वर्धा</span>
+                    </div>
+                </div>
+
+                <!-- Groom Side -->
+                <div class="family-block">
+                    <div class="family-role-label">
+                        <span class="i18n-en">🪷 Groom</span>
+                        <span class="i18n-hi">🪷 वर</span>
+                    </div>
+                    <div class="family-name">
+                        <span class="i18n-en">Atish</span>
+                        <span class="i18n-hi">अतिश</span>
+                    </div>
+                    <div class="family-parent">
+                        <span class="i18n-en">S/o Smt. Prabhatai &amp; Shri Babanrao Mungbhate</span>
+                        <span class="i18n-hi">सुपुत्र श्रीमती प्रभाताई व श्री बबनराव मुंगभाते</span>
+                    </div>
+                    <div class="family-address">
+                        <span class="i18n-en">Talni Rly, Po. Nimbhora (Bo.), Tq. Dhamangaon Rly, Dist. Amravati</span>
+                        <span class="i18n-hi">रा. तळणी रेल्वे, पो. निंभोरा(बो.),ता. धामणगाव रेल्वे, जि. अमरावती</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ WEDDING DETAILS ════════════════════════════════════════════════ -->
+        <section class="card animate-fadeup delay-3" style="opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s;">
+            <h2 class="section-title">
+                <span class="i18n-en">Wedding Details</span>
+                <span class="i18n-hi">विवाह सोहळ्याची माहिती</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="i18n-en">Save these dates in your heart</span>
+                <span class="i18n-hi">या शुभ तारखा आपल्या हृदयात साठवून ठेवा</span>
+            </p>
+            <div class="gold-divider"><span>🌸</span></div>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <div class="detail-label">
+                        <span class="i18n-en">Bride</span><span class="i18n-hi">वधू</span>
+                    </div>
+                    <div class="detail-value">
+                        <span class="i18n-en">Sakshi</span><span class="i18n-hi">साक्षी</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">
+                        <span class="i18n-en">Groom</span><span class="i18n-hi">वर</span>
+                    </div>
+                    <div class="detail-value">
+                        <span class="i18n-en">Atish</span><span class="i18n-hi">अतिश</span>
+                    </div>
+                </div>
+                <div class="detail-item" style="grid-column:1/-1">
+                    <div class="detail-label">
+                        <span class="i18n-en">Venue</span><span class="i18n-hi">स्थळ</span>
+                    </div>
+                    <div class="detail-value venue-clickable" id="venue-tap" onclick="openVenuePopup()" title="Tap for directions" role="button" tabindex="0">
+                        📍 <span class="i18n-en">Jai Mahakali Devasthan, Mahakali, Tq. Arvi, Dis. Wardha</span>
+                        <span class="i18n-hi">जय महाकाली देवस्थान, महाकाली, ता. आर्वी, जि. वर्धा</span>
+                        <span class="venue-tap-hint">
+                            <span class="i18n-en">Tap for directions →</span>
+                            <span class="i18n-hi">येथे कसे पोहोचाल ते पाहण्यासाठी स्पर्श करा →</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">
+                        <span class="i18n-en">Wedding Date</span><span class="i18n-hi">विवाह दिनांक</span>
+                    </div>
+                    <div class="detail-value">
+                        <span class="i18n-en">Thursday, 30 April 2026</span><span class="i18n-hi">गुरुवार, ३० एप्रिल २०२६</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">
+                        <span class="i18n-en">Time</span><span class="i18n-hi">सोहळ्याची वेळ</span>
+                    </div>
+                    <div class="detail-value">
+                        <span class="i18n-en">11:15 AM</span><span class="i18n-hi">११:१५ ला</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ EVENT SCHEDULE ══════════════════════════════════════════════════ -->
+        <section class="card animate-fadeup delay-3" style="opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s;">
+            <h2 class="section-title">
+                <span class="i18n-en">Events &amp; Schedule</span>
+                <span class="i18n-hi">कार्यक्रमांचे नियोजन</span>
+            </h2>
+            <p class="section-subtitle">
+                <span class="i18n-en">Celebrate every moment with us</span>
+                <span class="i18n-hi">या मंगल सोहळ्यातील प्रत्येक क्षण आमच्यासोबत अनुभवावा</span>
+            </p>
+            <div class="gold-divider"><span>🌸</span></div>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th><span class="i18n-en">Event</span><span class="i18n-hi">कार्यक्रम</span></th>
+                        <th><span class="i18n-en">Date</span><span class="i18n-hi">दिनांक</span></th>
+                        <th><span class="i18n-en">Time</span><span class="i18n-hi">वेळ</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <span class="event-name i18n-en">Mehendi Function</span>
+                            <span class="event-name i18n-hi">मेहंदी समारंभ</span>
+                        </td>
+                        <td>
+                            <span class="event-date i18n-en">Tuesday, 28 April 2026</span>
+                            <span class="event-date i18n-hi">मंगळवार, २८ एप्रिल २०२६</span>
+                        </td>
+                        <td>
+                            <span class="event-time i18n-en">6:00 PM</span>
+                            <span class="event-time i18n-hi">संध्याकाळी ६:०० वाजता</span>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <span class="event-name i18n-en">Haldi Ceremony</span>
+                            <span class="event-name i18n-hi">हळद समारंभ</span>
+                        </td>
+                        <td>
+                            <span class="event-date i18n-en">Wednesday, 29 April 2026</span>
+                            <span class="event-date i18n-hi">बुधवार, २९ एप्रिल २०२६</span>
+                        </td>
+                        <td>
+                            <span class="event-time i18n-en">6:00 PM</span>
+                            <span class="event-time i18n-hi">संध्याकाळी ६:०० वाजता</span>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <span class="event-name i18n-en">Wedding Ceremony</span>
+                            <span class="event-name i18n-hi">लग्न समारंभ</span>
+                        </td>
+                        <td>
+                            <span class="event-date i18n-en">Thursday, 30 Apr 2026</span>
+                            <span class="event-date i18n-hi">गुरुवार, ३० एप्रिल २०२६</span>
+                        </td>
+                        <td>
+                            <span class="event-time i18n-en">11:15 AM</span>
+                            <span class="event-time i18n-hi">सकाळी ११:१५ वाजता</span>
+                        </td>
+                    </tr>
+
+		<tr>
+                        <td>
+                            <span class="event-name i18n-en">Welcome Ceremony & Reception</span>
+                            <span class="event-name i18n-hi">स्वागत समारंभ व प्रितीभोज</span>
+                        </td>
+                        <td>
+                            <span class="event-date i18n-en">Friday, 1 May 2026</span>
+                            <span class="event-date i18n-hi">शुक्रवार, १ मे २०२६</span>
+                        </td>
+                        <td>
+                            <span class="event-time i18n-en">6:00 PM</span>
+                            <span class="event-time i18n-hi">संध्याकाळी ६:०० वाजता</span>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ══ FOOTER ══════════════════════════════════════════════════════════ -->
+        <footer class="invite-footer animate-fadein">
+            <div class="gold-divider"><span>✦</span></div>
+            <p class="footer-names">
+                <span class="i18n-en">Sakshi &amp; Atish</span>
+                <span class="i18n-hi">साक्षी &amp; अतिश</span>
+            </p>
+            <p>
+                <span class="i18n-en">Thursday, 30 Apr 2026 &nbsp;·&nbsp; Jai Mahakali Devasthan</span>
+                <span class="i18n-hi">गुरुवार, ३० एप्रिल २०२६ &nbsp;·&nbsp; जय महाकाली देवस्थान</span>
+            </p>
+        </footer>
+
+    </div><!-- /page-wrapper-inner -->
+
+    <script>
+        const audio = document.getElementById('bg-music');
+        const btn = document.getElementById('music-toggle');
+        let playing = false;
+
+        btn.addEventListener('click', () => {
+            if (playing) {
+                audio.pause(); btn.textContent = '🎵'; btn.classList.remove('playing');
+            } else {
+                audio.play().catch(() => {}); btn.textContent = '🔇'; btn.classList.add('playing');
+            }
+            playing = !playing;
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-fadeup').forEach(el => {
+            el.style.opacity = '0'; el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+            observer.observe(el);
+        });
+    </script>
+
+    <!-- ══ VENUE POPUP ═══════════════════════════════════════════════════════ -->
+    <div id="venue-popup-overlay" class="venue-popup-overlay" onclick="closeVenuePopup(event)" role="dialog" aria-modal="true" aria-label="Venue directions">
+        <div class="venue-popup-card">
+            <button class="venue-popup-close" onclick="closeVenuePopup()" aria-label="Close">×</button>
+            <div class="venue-popup-pin-wrap">
+                <div class="venue-popup-pin">📍</div>
+                <div class="venue-popup-pin-ring"></div>
+            </div>
+            <h3 class="venue-popup-title">
+                <span class="i18n-en">Find the Venue</span>
+                <span class="i18n-hi">स्थान खोजें</span>
+            </h3>
+            <p class="venue-popup-name">
+                <span class="i18n-en">Jai Mahakali Devasthan, Mahakali, Tq. Arvi, Dis. Wardha</span>
+                <span class="i18n-hi">जय महाकाली देवस्थान, महाकाली, ता. आर्वी, जि. वर्धा</span>
+            </p>
+            <p class="venue-popup-sub">
+                <span class="i18n-en">Get turn-by-turn directions from your current location</span>
+                <span class="i18n-hi">अपनी वर्तमान स्थिति से दिशा-निर्देश प्राप्त करें</span>
+            </p>
+            <div class="venue-popup-actions">
+                <a href="https://maps.app.goo.gl/R1e6oZmod58MRRB17" target="_blank" rel="noopener noreferrer" class="venue-popup-btn-directions" onclick="closeVenuePopup()">
+                    🗺️ <span class="i18n-en">Open in Google Maps</span>
+                    <span class="i18n-hi">Google Maps में खोलें</span>
+                </a>
+                <button class="venue-popup-btn-cancel" onclick="closeVenuePopup()">
+                    <span class="i18n-en">Maybe Later</span>
+                    <span class="i18n-hi">बाद में</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .venue-clickable { cursor: pointer; display: flex; flex-direction: column; gap: 0.25rem; transition: color 0.2s ease; }
+        .venue-clickable:hover { color: var(--gold, #c8860a); }
+        .venue-tap-hint { font-size: 0.78rem; font-style: italic; color: #c8860a; opacity: 0.85; letter-spacing: 0.03em; animation: tapPulse 2.2s ease-in-out infinite; display: block; margin-top: 0.15rem; }
+        @keyframes tapPulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+        .venue-popup-overlay { position: fixed; inset: 0; background: rgba(30,10,0,0.55); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s ease; padding: 1rem; }
+        .venue-popup-overlay.active { opacity: 1; visibility: visible; }
+        .venue-popup-card { background: linear-gradient(160deg, #fffbf2 0%, #fff8ee 50%, #fff3e0 100%); border-radius: 24px; padding: 2.2rem 2rem 1.8rem; max-width: 380px; width: 100%; box-shadow: 0 30px 80px rgba(120,60,0,0.28), 0 0 0 1px rgba(212,168,48,0.25), inset 0 1px 0 rgba(255,255,255,0.9); text-align: center; position: relative; transform: translateY(40px) scale(0.93); transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease; opacity: 0; }
+        .venue-popup-overlay.active .venue-popup-card { transform: translateY(0) scale(1); opacity: 1; }
+        .venue-popup-close { position: absolute; top: 1rem; right: 1rem; background: rgba(180,120,30,0.1); border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 1.15rem; cursor: pointer; color: #8a5c1a; transition: background 0.2s ease; display: flex; align-items: center; justify-content: center; }
+        .venue-popup-pin-wrap { position: relative; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+        .venue-popup-pin { font-size: 2.8rem; animation: pinBounce 2s ease-in-out infinite; }
+        @keyframes pinBounce { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-8px); } 60% { transform: translateY(-4px); } }
+        .venue-popup-pin-ring { position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); width: 36px; height: 10px; background: radial-gradient(ellipse at center, rgba(200,134,10,0.3) 0%, transparent 75%); border-radius: 50%; }
+        .venue-popup-title { font-family: var(--font-head, 'serif'); font-size: clamp(1.1rem,4vw,1.35rem); background: linear-gradient(135deg, #8a6520, #c97c30); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 0.5rem; font-weight: 700; }
+        .venue-popup-name { font-family: var(--font-sub, 'serif'); font-size: clamp(0.88rem,3vw,1rem); color: #4a3010; font-weight: 600; margin: 0 0 0.6rem; line-height: 1.5; }
+        .venue-popup-sub { font-size: 0.82rem; color: #7a5a35; font-style: italic; margin: 0 0 1.5rem; }
+        .venue-popup-actions { display: flex; flex-direction: column; gap: 0.65rem; }
+        .venue-popup-btn-directions { display: flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.85rem 1.4rem; background: linear-gradient(135deg, #b8831a, #e8a820, #d4903a); color: #fff; text-decoration: none; border-radius: 50px; font-size: 0.95rem; font-weight: 700; box-shadow: 0 6px 24px rgba(180,110,10,0.45); transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1); border: none; cursor: pointer; }
+        .venue-popup-btn-directions:hover { transform: translateY(-3px) scale(1.03); color: #fff; }
+        .venue-popup-btn-cancel { background: transparent; border: 1.5px solid rgba(180,130,30,0.35); border-radius: 50px; padding: 0.65rem 1.2rem; font-size: 0.85rem; color: #8a6520; cursor: pointer; }
+    </style>
+
+    <script>
+        function openVenuePopup() { document.getElementById('venue-popup-overlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeVenuePopup(event) {
+            if (event && event.target !== document.getElementById('venue-popup-overlay')) return;
+            document.getElementById('venue-popup-overlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeVenuePopup(); });
+    </script>
+
+</div><!-- /page-wrapper -->
+
+
+  <script>
+    // ── Language toggle ──────────────────────────────────────────────────────
+    const htmlEl = document.getElementById('html-root');
+    const langBtn = document.getElementById('lang-toggle');
+
+    function applyLanguage(lang) {
+      htmlEl.setAttribute('lang', lang);
+      langBtn.textContent = lang === 'en' ? 'मराठी' : 'English';
+      localStorage.setItem('lang', lang);
+    }
+
+    function toggleLanguage() {
+      const current = htmlEl.getAttribute('lang') || 'en';
+      applyLanguage(current === 'en' ? 'hi' : 'en');
+    }
+
+    // Apply saved preference or default to English
+    applyLanguage(localStorage.getItem('lang') || 'en');
+  </script>
+
+</body></html>
